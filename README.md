@@ -1,4 +1,5 @@
 # Firmware for an Class D amplifier
+This is the firmware for an extended project of an Class D amplifier made in an SMD soldering course on SDU Odense
 
 ### Vscode project setup
 - Download AVRDUDE for compilation
@@ -6,4 +7,4 @@
 - Test MakeFile (should work universally)
 
 ### TODO
-- Change MakeFile to correct MCU
+
