@@ -49,14 +49,12 @@ build : ./build/$(MAIN_APP).elf
 	
 ./build/$(MAIN_APP).elf: ./build/$(MAIN_APP).o
 	$(CC) $(SRC) $(INCLUDE) $(LFLAGS) $@
-	
+
 ./build/$(MAIN_APP).o:$(SRC)
 	$(CC) $^ $(INCLUDE) $(CFLAGS) $@
 	
 .PHONY : clean
 clean :
-	echo "Cleaning build folder"
+	@echo "Cleaning build folder"
 	rm $(BUILD_DIR)\$(MAIN_APP).o $(BUILD_DIR)\$(MAIN_APP).hex $(BUILD_DIR)\$(MAIN_APP).elf
-	echo "Build folder clean"
-
-
+	@echo "Build folder clean"

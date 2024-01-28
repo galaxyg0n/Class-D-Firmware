@@ -1,5 +1,7 @@
 {
     "files.associations": {
-        "io.h": "c"
+        "io.h": "c",
+        "classdfirmware.h": "c",
+        "delay.h": "c"
     }
 }
