@@ -6,4 +6,4 @@
 - Test MakeFile (should work universally)
 
 ### TODO
--[] Change MakeFile to correct MCU
+- Change MakeFile to correct MCU
