@@ -4,7 +4,7 @@ SOURCE_PATH =  src
 BUILD_DIR =    build
 CUSTOM_INCLUDE = includes
 
-MAIN_HEX_PATH = $(BUILD_DIR)\$(MAIN_APP).hex
+MAIN_HEX_PATH = $(BUILD_DIR)/$(MAIN_APP).hex
 
 # Compiler and other Section
 CC = avr-gcc
@@ -38,7 +38,7 @@ SRC +=
 
 # The headers files needed for building the application
 INCLUDE = -I. 
-INCLUDE += $(CUSTOM_INCLUDE)\ClassDFirmware.h
+INCLUDE += $(CUSTOM_INCLUDE)/ClassDFirmware.h
 
 # commands Section
 burn : Build
@@ -56,5 +56,5 @@ build : ./build/$(MAIN_APP).elf
 .PHONY : clean
 clean :
 	@echo "Cleaning build folder"
-	rm $(BUILD_DIR)\$(MAIN_APP).o $(BUILD_DIR)\$(MAIN_APP).hex $(BUILD_DIR)\$(MAIN_APP).elf
+	rm $(BUILD_DIR)/$(MAIN_APP).o $(BUILD_DIR)/$(MAIN_APP).hex $(BUILD_DIR)/$(MAIN_APP).elf
 	@echo "Build folder clean"
