@@ -2,6 +2,7 @@
     "files.associations": {
         "io.h": "c",
         "classdfirmware.h": "c",
-        "delay.h": "c"
+        "delay.h": "c",
+        "i2c.h": "c"
     }
 }

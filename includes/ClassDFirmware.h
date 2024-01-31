@@ -8,6 +8,9 @@
    #define F_CPU 16000000UL     
 #endif
 
+
+
+/*
 // SPI interface
 #define MISO PC0
 #define MOSI PE3
@@ -16,7 +19,6 @@
 // UART interface
 #define TXD PD1
 #define RXD PD0
+*/
 
 // Display interface
-#define OLED_SDA PD0
-#define OLED_SCL PD1

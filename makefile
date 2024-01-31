@@ -22,27 +22,24 @@ HFLAGS = -j .text -j .data -O ihex
 
 #Options for avrdude to burn the hex file
 #MMCU model here according to avrdude options
-DUDEFLAGS = -c
-DUDEFLAGS += arduino 
-DUDEFLAGS += -p
-DUDEFLAGS += m8  
-DUDEFLAGS += -P 
-DUDEFLAGS += COM3 
-DUDEFLAGS += -b 
-DUDEFLAGS += 19200 
+DUDEFLAGS = -c arduino 
+DUDEFLAGS += -p m328p
+DUDEFLAGS += -P COM3
+DUDEFLAGS += -b 115200 
 DUDEFLAGS += -U flash:w:$(MAIN_HEX_PATH):i
+DUDEFLAGS += -v
 
 # Sources files needed for building the application 
 SRC = ./src/$(MAIN_APP).c
-SRC += 
+SRC += ./src/i2c.c
 
 # The headers files needed for building the application
-INCLUDE = -I. 
+INCLUDE = -I.
 INCLUDE += $(CUSTOM_INCLUDE)/ClassDFirmware.h
+INCLUDE += $(CUSTOM_INCLUDE)/i2c.h
 
-# commands Section
-burn : Build
-	$(AVRDUDE) $(DUDEFLAGS)
+# ------------------------------------------------------------------------------------------------------
+# Build setup
 
 build : ./build/$(MAIN_APP).elf
 	$(OBJCOPY) $(HFLAGS) $< ./build/$(MAIN_APP).hex
@@ -58,3 +55,10 @@ clean :
 	@echo "Cleaning build folder"
 	rm $(BUILD_DIR)/$(MAIN_APP).o $(BUILD_DIR)/$(MAIN_APP).hex $(BUILD_DIR)/$(MAIN_APP).elf
 	@echo "Build folder clean"
+
+
+# ------------------------------------------------------------------------------------------------------
+# Flasher setup
+
+flash : Build
+	$(AVRDUDE) $(DUDEFLAGS)
